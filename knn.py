@@ -46,8 +46,9 @@ def main():
     # 读取数据集
     iris_data = pd.read_csv(DATA_FILE, index_col='Id')
     iris_data['Label'] = iris_data['Species'].map(SPECIES_LABEL_DICT)
-
-    k_vals = [1,3, 5, 10,15,20,25]
+    k_vals=[]
+    for each in range(1,50):
+        k_vals.append(each)
     sel_cols = ['SepalLengthCm', 'SepalWidthCm']
     for k_val in k_vals:
         investigate_knn(iris_data, sel_cols, k_val)
